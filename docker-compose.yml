@@ -17,18 +17,18 @@ services:
     image: "${BLUE_IMAGE}"
     container_name: app_blue
     environment:
-      - PORT=3000  # App listens on port 3000 inside container
+      - PORT=8081  #
       - RELEASE_ID=${RELEASE_ID_BLUE}
       - APP_POOL=blue
     ports:
-      - "0.0.0.0:8081:3000"  # Map host 8081 to container 3000
+      - "0.0.0.0:8081:8081"  
 
   app_green:
     image: "${GREEN_IMAGE}"
     container_name: app_green
     environment:
-      - PORT=3000  # App also listens on port 3000 inside its container
+      - PORT=8082  
       - RELEASE_ID=${RELEASE_ID_GREEN}
       - APP_POOL=green
     ports:
-      - "0.0.0.0:8082:3000"  # Map host 8082 to container 3000
+      - "0.0.0.0:8082:8082"  # Map host 8082 to container 3000
